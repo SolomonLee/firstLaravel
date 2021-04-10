@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +16,12 @@ use App\Http\Controllers\IndexController;
 */
 
 // Route::get('/','[IndexController::class, 'index']');
-Route::resource('/', IndexController::class);
+Route::get('/', [IndexController::class, 'index']);
+Route::resource('/index', IndexController::class);
+
+Route::post('/login', [LoginController::class, 'login']);
+Route::get('/autoLogin', [LoginController::class, 'autoLogin']);
+Route::post('authenticate', [LoginController::class, 'authenticate']);
+
+Route::get('/getCSRFToken', [LoginController::class, 'getCSRFToken']);
+
