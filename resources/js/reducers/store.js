@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "./userRedux";
+import constellationRedux from "./constellationRedux";
 
 export const store = configureStore({
     reducer: {
-        userinfo: userReducer,
-    },
+        constellation: constellationRedux
+    }
 });
 
 export default store;

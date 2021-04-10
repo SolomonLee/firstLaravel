@@ -3906,10 +3906,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./resources/js/apis/userAPI.js":
-/*!**************************************!*\
-  !*** ./resources/js/apis/userAPI.js ***!
-  \**************************************/
+/***/ "./resources/js/apis/constellationAPI.js":
+/*!***********************************************!*\
+  !*** ./resources/js/apis/constellationAPI.js ***!
+  \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3969,11 +3969,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _reducers_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reducers/store */ "./resources/js/reducers/store.js");
-/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Header */ "./resources/js/components/Header.js");
-/* harmony import */ var _components_pages_Index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/pages/Index */ "./resources/js/components/pages/Index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_pages_Constellation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/pages/Constellation */ "./resources/js/components/pages/Constellation.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes React and other helpers. It's a great starting point while
+ * building robust, powerful web applications using React + Laravel.
+ */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-
+/**
+ * Next, we will create a fresh React component instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
 
 
 
@@ -3984,19 +3992,16 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 function App() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_2__.Provider, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_2__.Provider, {
     store: _reducers_store__WEBPACK_IMPORTED_MODULE_3__.default,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-      className: "App",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Header__WEBPACK_IMPORTED_MODULE_4__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_pages_Index__WEBPACK_IMPORTED_MODULE_5__.default, {})]
-    })
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_pages_Constellation__WEBPACK_IMPORTED_MODULE_4__.default, {})
   });
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App); // DOM element
 
-if (document.getElementById("APP")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(App, {}), document.getElementById("APP"));
+if (document.getElementById("App")) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(App, {}), document.getElementById("App"));
 }
 
 /***/ }),
@@ -4045,451 +4050,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/components/Header.js":
-/*!*******************************************!*\
-  !*** ./resources/js/components/Header.js ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _combo_User__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./combo/User */ "./resources/js/components/combo/User.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-var Header = function Header() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("header", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "title",
-      children: "\u661F\u5EA7\u904B\u52E2"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_combo_User__WEBPACK_IMPORTED_MODULE_0__.default, {})]
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);
-
-/***/ }),
-
-/***/ "./resources/js/components/InputItem.js":
-/*!**********************************************!*\
-  !*** ./resources/js/components/InputItem.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-var inputTypes = ["text", "number", "password", "radio", "checkBox"];
-
-var InputItem = function InputItem(props) {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(props !== null && props !== void 0 && props.placeholder ? props !== null && props !== void 0 && props.defaultValue ? false : true : false),
-      _useState2 = _slicedToArray(_useState, 2),
-      showPlaceholder = _useState2[0],
-      setShowPlaceholder = _useState2[1];
-
-  if (!(props !== null && props !== void 0 && props.type)) return null;
-
-  var handlerChange = function handlerChange(e) {
-    var _props$setValue;
-
-    if (e.target.value == "") setShowPlaceholder(true);
-    (_props$setValue = props.setValue) === null || _props$setValue === void 0 ? void 0 : _props$setValue.call(props, e.target.value);
-  };
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    className: "input_item",
-    iserror: props !== null && props !== void 0 && props.error ? "" :  false || null,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      className: "item_content",
-      children: [inputTypes.includes(props.type) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-        type: props.type,
-        onChange: handlerChange,
-        defaultValue: props !== null && props !== void 0 && props.defaultValue ? props.defaultValue : ""
-      }) : props.type == "textArea" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
-        onChange: handlerChange,
-        children: props !== null && props !== void 0 && props.defaultValue ? props.defaultValue : null
-      }) : null, showPlaceholder ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "placeholder",
-        children: props.placeholder
-      }) : null]
-    })
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InputItem);
-
-/***/ }),
-
-/***/ "./resources/js/components/combo/FillItem.js":
-/*!***************************************************!*\
-  !*** ./resources/js/components/combo/FillItem.js ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _InputItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../InputItem */ "./resources/js/components/InputItem.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
- // props { styleClass[string] , title[string], type[string], data , placeholder[string],
-// defaultValue[string], setValue[function]}
-
-
-
-
-var FillItem = function FillItem(props) {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)((props === null || props === void 0 ? void 0 : props.errorMsg) || ""),
-      _useState2 = _slicedToArray(_useState, 2),
-      errorMsg = _useState2[0],
-      setErrorMsg = _useState2[1];
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(props !== null && props !== void 0 && props.placeholder ? props !== null && props !== void 0 && props.defaultValue ? false : true : false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      showPlaceholder = _useState4[0],
-      setShowPlaceholder = _useState4[1];
-
-  var setValue = function setValue(value) {
-    var _props$setValue;
-
-    if (props.request) {
-      if (value == "") {
-        setErrorMsg("不能空著!");
-        setShowPlaceholder(true);
-      } else {
-        setErrorMsg("");
-        setShowPlaceholder(false);
-      }
-    } else {
-      if (value == "") {
-        setShowPlaceholder(true);
-      } else {
-        setShowPlaceholder(false);
-      }
-    }
-
-    (_props$setValue = props.setValue) === null || _props$setValue === void 0 ? void 0 : _props$setValue.call(props, value);
-  };
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    className: "fill_item",
-    stylenum: props === null || props === void 0 ? void 0 : props.styleClass,
-    children: [props !== null && props !== void 0 && props.title ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "item_title",
-      children: props.title
-    }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "item_content",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_InputItem__WEBPACK_IMPORTED_MODULE_1__.default, {
-        type: props.type,
-        setValue: setValue,
-        defaultValue: props.defaultValue,
-        error: errorMsg != ""
-      }), showPlaceholder && props !== null && props !== void 0 && props.placeholder ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "placeholder",
-        children: props.placeholder
-      }) : null, errorMsg != "" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "error",
-        children: errorMsg
-      }) : null]
-    })]
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FillItem);
-
-/***/ }),
-
-/***/ "./resources/js/components/combo/User.js":
-/*!***********************************************!*\
-  !*** ./resources/js/components/combo/User.js ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _FillItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FillItem */ "./resources/js/components/combo/FillItem.js");
-/* harmony import */ var _reducers_userRedux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../reducers/userRedux */ "./resources/js/reducers/userRedux.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-
-
-function User() {
-  var userStatus = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(_reducers_userRedux__WEBPACK_IMPORTED_MODULE_3__.selectUserStatus);
-  var userType = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(_reducers_userRedux__WEBPACK_IMPORTED_MODULE_3__.selectUserType); // const userBirth = useSelector(selectUserBirth);
-
-  var userName = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(_reducers_userRedux__WEBPACK_IMPORTED_MODULE_3__.selectUserName);
-  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-      _useState2 = _slicedToArray(_useState, 2),
-      account = _useState2[0],
-      setAccount = _useState2[1];
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-      _useState4 = _slicedToArray(_useState3, 2),
-      password = _useState4[0],
-      setPassword = _useState4[1];
-
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-      _useState6 = _slicedToArray(_useState5, 2),
-      name = _useState6[0],
-      setName = _useState6[1];
-
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-      _useState8 = _slicedToArray(_useState7, 2),
-      birth = _useState8[0],
-      setBirth = _useState8[1];
-
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-      _useState10 = _slicedToArray(_useState9, 2),
-      useLogin = _useState10[0],
-      setUseLogin = _useState10[1];
-
-  var handlerShowLoginModal = function handlerShowLoginModal(e) {
-    $("#UserLoginModal").modal("show");
-  };
-
-  var afterChangeModalState = function afterChangeModalState() {
-    console.log("afterChangeModalState userType:", userType);
-
-    if (userType === 1) {
-      // login or sigin fail
-      setUseLogin(false);
-    } else {
-      setUseLogin(true);
-      $("#UserLoginModal").modal("hide");
-    }
-  };
-
-  var handlerLogin = function handlerLogin(e) {
-    console.log("login info account:", account, "  password:", password);
-
-    if (account == "" && password == "") {
-      setUseLogin(true);
-      alert("請確認輸入資訊");
-    } else {
-      dispatch((0,_reducers_userRedux__WEBPACK_IMPORTED_MODULE_3__.loginAsync)({
-        type: 2,
-        name: "李姓男子",
-        birth: "1999/12/12"
-      }))["finally"](function () {
-        console.log("handlerLogin finally userType:", userType);
-        afterChangeModalState();
-      });
-    }
-  };
-
-  var handlerLogout = function handlerLogout(e) {
-    dispatch((0,_reducers_userRedux__WEBPACK_IMPORTED_MODULE_3__.logoutAsync)());
-  };
-
-  var handlerSignup = function handlerSignup(e) {
-    console.log("signup info account:", account, "  password:", password, "  name:", name, "  birth:", birth);
-
-    if (account == "" || password == "" || name == "" || birth == "") {
-      setUseLogin(false);
-      alert("請確認輸入資訊");
-    } else {
-      dispatch((0,_reducers_userRedux__WEBPACK_IMPORTED_MODULE_3__.signupAsync)({
-        account: account,
-        password: password,
-        name: name,
-        birth: birth,
-        type: 2
-      }))["finally"](function () {
-        console.log("handlerSignup finally userType:", userType);
-        afterChangeModalState();
-      });
-    }
-  };
-
-  var handlerChangeSignup = function handlerChangeSignup(e) {
-    setUseLogin(false);
-  };
-
-  var handlerChangeLogin = function handlerChangeLogin(e) {
-    setUseLogin(true);
-  };
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-    className: "user_box",
-    boxtype: userStatus,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      className: "box_title"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      className: "box_content",
-      children: userType == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-        className: "btn",
-        styleno: "login",
-        onClick: handlerShowLoginModal,
-        children: "\u767B\u5165"
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
-        className: "btn",
-        styleno: "logout",
-        onClick: handlerLogout,
-        children: [userName, " : \u767B\u51FA"]
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      className: "box_bottom",
-      children: userStatus == "onlogout" ? "登出中..." : null
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      className: "modal",
-      tabIndex: "-1",
-      role: "dialog",
-      id: "UserLoginModal",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "modal-dialog",
-        role: "document",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: "modal-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "modal-header",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h5", {
-              className: "modal-title",
-              children: !useLogin ? "登入" : "註冊"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-              type: "button",
-              className: "close",
-              "data-dismiss": "modal",
-              "aria-label": "Close",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                "aria-hidden": "true",
-                children: "\xD7"
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "modal-body",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_FillItem__WEBPACK_IMPORTED_MODULE_2__.default, {
-              title: "\u5E33\u865F",
-              placeholder: "\u8F38\u5165\u60A8\u7684\u5E33\u865F",
-              setValue: setAccount,
-              type: "text",
-              defaultValue: account,
-              request: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_FillItem__WEBPACK_IMPORTED_MODULE_2__.default, {
-              placeholder: "\u8F38\u5165\u60A8\u7684\u5BC6\u78BC",
-              setValue: setPassword,
-              type: "text",
-              defaultValue: password,
-              request: true
-            }), !useLogin ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_FillItem__WEBPACK_IMPORTED_MODULE_2__.default, {
-                placeholder: "\u8F38\u5165\u60A8\u7684\u540D\u7A31",
-                setValue: setName,
-                type: "text",
-                defaultValue: name,
-                request: true
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_FillItem__WEBPACK_IMPORTED_MODULE_2__.default, {
-                placeholder: "\u8F38\u5165\u60A8\u7684\u751F\u65E5",
-                setValue: setBirth,
-                type: "text",
-                defaultValue: birth,
-                request: true
-              })]
-            }) : null]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "modal-footer",
-            children: [useLogin ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-              type: "button",
-              className: "btn btn-primary",
-              onClick: handlerLogin,
-              children: "\u767B\u5165"
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-              type: "button",
-              className: "btn btn-primary",
-              onClick: handlerSignup,
-              children: "\u8A3B\u518A"
-            }), useLogin ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-              type: "button",
-              className: "btn btn-primary",
-              onClick: handlerChangeSignup,
-              children: "\u524D\u5F80\u8A3B\u518A"
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-              type: "button",
-              className: "btn btn-primary",
-              onClick: handlerChangeLogin,
-              children: "\u8FD4\u56DE\u767B\u5165"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-              type: "button",
-              className: "btn btn-secondary",
-              "data-dismiss": "modal",
-              children: "\u95DC\u9589"
-            })]
-          })]
-        })
-      })
-    })]
-  });
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (User);
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/Index.js":
-/*!************************************************!*\
-  !*** ./resources/js/components/pages/Index.js ***!
-  \************************************************/
+/***/ "./resources/js/components/pages/Constellation.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/pages/Constellation.js ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4500,71 +4064,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
-var Index = function Index(props) {
+
+function Constellation() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
     className: "container",
-    pagename: "page-index",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-      className: "row justify-content-center",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        className: "col-md-8"
-      })
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("section", {
+      className: "constellation_block",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+        className: "block_title",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
+          children: "\u661F\u5EA7\u904B\u52E2"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+        className: "block_content"
+      })]
     })
   });
-};
+}
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Constellation);
 
 /***/ }),
 
-/***/ "./resources/js/reducers/store.js":
-/*!****************************************!*\
-  !*** ./resources/js/reducers/store.js ***!
-  \****************************************/
+/***/ "./resources/js/reducers/constellationRedux.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/reducers/constellationRedux.js ***!
+  \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "store": () => (/* binding */ store),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
-/* harmony import */ var _userRedux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./userRedux */ "./resources/js/reducers/userRedux.js");
-
-
-var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.configureStore)({
-  reducer: {
-    userinfo: _userRedux__WEBPACK_IMPORTED_MODULE_0__.default
-  }
-});
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (store);
-
-/***/ }),
-
-/***/ "./resources/js/reducers/userRedux.js":
-/*!********************************************!*\
-  !*** ./resources/js/reducers/userRedux.js ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "loginAsync": () => (/* binding */ loginAsync),
-/* harmony export */   "signupAsync": () => (/* binding */ signupAsync),
-/* harmony export */   "logoutAsync": () => (/* binding */ logoutAsync),
-/* harmony export */   "userSlice": () => (/* binding */ userSlice),
-/* harmony export */   "selectUserType": () => (/* binding */ selectUserType),
-/* harmony export */   "selectUserStatus": () => (/* binding */ selectUserStatus),
-/* harmony export */   "selectUserBirth": () => (/* binding */ selectUserBirth),
-/* harmony export */   "selectUserName": () => (/* binding */ selectUserName),
+/* harmony export */   "getAsync": () => (/* binding */ getAsync),
+/* harmony export */   "constellationSlice": () => (/* binding */ constellationSlice),
+/* harmony export */   "selectConstellationStatus": () => (/* binding */ selectConstellationStatus),
+/* harmony export */   "selectConstellationDatas": () => (/* binding */ selectConstellationDatas),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
-/* harmony import */ var _apis_userAPI__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../apis/userAPI */ "./resources/js/apis/userAPI.js");
+/* harmony import */ var _apis_constellationAPI__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../apis/constellationAPI */ "./resources/js/apis/constellationAPI.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -4574,17 +4114,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 var initialState = {
-  type: 1,
   status: "done",
-  name: "遊客",
-  birth: ""
+  datas: []
 }; // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
 // will call the thunk with the `dispatch` function as the first argument. Async
 // code can then be executed and other actions can be dispatched. Thunks are
 // typically used to make async requests.
+// export const updateAsync = createAsyncThunk(
+//     "constellation/update",
+//     async data => {
+//         const response = await api.login(data);
+//         return response.data;
+//     }
+// );
 
-var loginAsync = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)("user/Login", /*#__PURE__*/function () {
+var getAsync = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)("constellation/get", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(data) {
     var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
@@ -4592,7 +4137,7 @@ var loginAsync = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThu
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return _apis_userAPI__WEBPACK_IMPORTED_MODULE_1__.login(data);
+            return _apis_constellationAPI__WEBPACK_IMPORTED_MODULE_1__.signup(data);
 
           case 2:
             response = _context.sent;
@@ -4610,77 +4155,20 @@ var loginAsync = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThu
     return _ref.apply(this, arguments);
   };
 }());
-var signupAsync = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)("user/Signup", /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(data) {
-    var response;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            _context2.next = 2;
-            return _apis_userAPI__WEBPACK_IMPORTED_MODULE_1__.signup(data);
-
-          case 2:
-            response = _context2.sent;
-            return _context2.abrupt("return", response.data);
-
-          case 4:
-          case "end":
-            return _context2.stop();
-        }
-      }
-    }, _callee2);
-  }));
-
-  return function (_x2) {
-    return _ref2.apply(this, arguments);
-  };
-}());
-var logoutAsync = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)("user/Logout", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-  var response;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
-    while (1) {
-      switch (_context3.prev = _context3.next) {
-        case 0:
-          _context3.next = 2;
-          return _apis_userAPI__WEBPACK_IMPORTED_MODULE_1__.logout();
-
-        case 2:
-          response = _context3.sent;
-          return _context3.abrupt("return", response.data);
-
-        case 4:
-        case "end":
-          return _context3.stop();
-      }
-    }
-  }, _callee3);
-})));
-var userSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createSlice)({
-  name: "user",
+var constellationSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createSlice)({
+  name: "constellation",
   initialState: initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {},
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
   // including actions generated by createAsyncThunk or in other slices.
   extraReducers: function extraReducers(builder) {
-    builder.addCase(loginAsync.pending, function (state) {
-      state.status = "onlogin";
-    }).addCase(loginAsync.fulfilled, function (state, action) {
+    builder.addCase(getAsync.pending, function (state) {
+      state.status = "loading";
+    }).addCase(getAsync.fulfilled, function (state, action) {
       state.status = "done";
-      state.name = action.payload.name;
-      state.type = action.payload.type;
-      state.birth = action.payload.birth;
-    }).addCase(loginAsync.rejected, function () {
-      alert("發生錯誤, 將重新整理畫面");
-    }).addCase(logoutAsync.pending, function (state) {
-      state.status = "onlogout";
-    }).addCase(logoutAsync.fulfilled, function (state, action) {
-      state.status = "done";
-      state.name = action.payload.name;
-      state.type = action.payload.type;
-      state.birth = action.payload.birth;
-    }).addCase(logoutAsync.rejected, function () {
+      state.datas = action.payload.datas;
+    }).addCase(getAsync.rejected, function () {
       alert("發生錯誤, 將重新整理畫面");
     });
   }
@@ -4689,19 +4177,38 @@ var userSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createSlice)({
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 
-var selectUserType = function selectUserType(state) {
-  return state.userinfo.type;
-};
-var selectUserStatus = function selectUserStatus(state) {
+var selectConstellationStatus = function selectConstellationStatus(state) {
   return state.userinfo.status;
 };
-var selectUserBirth = function selectUserBirth(state) {
-  return state.userinfo.birth;
+var selectConstellationDatas = function selectConstellationDatas(state) {
+  return state.constellationDatas;
 };
-var selectUserName = function selectUserName(state) {
-  return state.userinfo.name;
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (userSlice.reducer);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (constellationSlice.reducer);
+
+/***/ }),
+
+/***/ "./resources/js/reducers/store.js":
+/*!****************************************!*\
+  !*** ./resources/js/reducers/store.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "store": () => (/* binding */ store),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+/* harmony import */ var _constellationRedux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constellationRedux */ "./resources/js/reducers/constellationRedux.js");
+
+
+var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.configureStore)({
+  reducer: {
+    constellation: _constellationRedux__WEBPACK_IMPORTED_MODULE_0__.default
+  }
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (store);
 
 /***/ }),
 

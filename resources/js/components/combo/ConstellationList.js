@@ -1,108 +1,22 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import FillItem from "./FillItem";
 import {
-    loginAsync,
-    logoutAsync,
-    signupAsync,
-    selectUserType,
-    selectUserStatus,
-    selectUserName,
-} from "../../reducers/userRedux";
+    getAsync,
+    selectConstellationStatus,
+    selectConstellationDatas
+} from "../../reducers/constellationRedux";
 
-function User() {
-    const userStatus = useSelector(selectUserStatus);
-    const userType = useSelector(selectUserType);
-    // const userBirth = useSelector(selectUserBirth);
-    const userName = useSelector(selectUserName);
+function ConstellationList() {
+    const constellationDatas = useSelector(selectConstellationDatas);
+    const constellationStatus = useSelector(selectConstellationStatus);
     const dispatch = useDispatch();
 
-    const [account, setAccount] = useState("");
-    const [password, setPassword] = useState("");
-    const [name, setName] = useState("");
-    const [birth, setBirth] = useState("");
-    const [useLogin, setUseLogin] = useState(true);
-
-    const handlerShowLoginModal = (e) => {
-        $("#UserLoginModal").modal("show");
-    };
-
-    const afterChangeModalState = () => {
-        console.log("afterChangeModalState userType:", userType);
-
-        if (userType === 1) {
-            // login or sigin fail
-            setUseLogin(false);
-        } else {
-            setUseLogin(true);
-            $("#UserLoginModal").modal("hide");
-        }
-    };
-
-    const handlerLogin = (e) => {
-        console.log("login info account:", account, "  password:", password);
-        if (account == "" && password == "") {
-            setUseLogin(true);
-            alert("請確認輸入資訊");
-        } else {
-            dispatch(
-                loginAsync({
-                    type: 2,
-                    name: "李姓男子",
-                    birth: "1999/12/12",
-                })
-            ).finally(() => {
-                console.log("handlerLogin finally userType:", userType);
-                afterChangeModalState();
-            });
-        }
-    };
-
-    const handlerLogout = (e) => {
-        dispatch(logoutAsync());
-    };
-
-    const handlerSignup = (e) => {
-        console.log(
-            "signup info account:",
-            account,
-            "  password:",
-            password,
-            "  name:",
-            name,
-            "  birth:",
-            birth
-        );
-
-        if (account == "" || password == "" || name == "" || birth == "") {
-            setUseLogin(false);
-            alert("請確認輸入資訊");
-        } else {
-            dispatch(
-                signupAsync({
-                    account: account,
-                    password: password,
-                    name: name,
-                    birth: birth,
-                    type: 2,
-                })
-            ).finally(() => {
-                console.log("handlerSignup finally userType:", userType);
-                afterChangeModalState();
-            });
-        }
-    };
-
-    const handlerChangeSignup = (e) => {
-        setUseLogin(false);
-    };
-
-    const handlerChangeLogin = (e) => {
-        setUseLogin(true);
-    };
+    useEffect(() => {
+        dispatch(constellationDatas());
+    }, []);
 
     return (
-        <div className="user_box" boxtype={userStatus}>
+        <div className="constellation_list_box" boxtype={userStatus}>
             <div className="box_title"></div>
             <div className="box_content">
                 {userType == 1 ? (
@@ -234,4 +148,4 @@ function User() {
     );
 }
 
-export default User;
+export default ConstellationList;
