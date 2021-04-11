@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Facades\Spider\Constellation\ConstellationSpider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,6 +15,11 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        
+        $this->app->bind('ConstellationSpider', function(){
+
+            return new ConstellationSpider;
+        });
     }
 
     /**

@@ -10942,4 +10942,54 @@ a.text-dark:focus {
   }
 }
 
+[class$=_block] {
+  margin-bottom: 20px;
+  padding: 20px 0;
+}
+
+[class$=_block] > .block_title {
+  text-align: center;
+}
+
+[class$=_box] {
+  margin-bottom: 16px;
+  padding: 12px 0;
+  border-radius: 30px;
+}
+
+[class$=_box] > .block_title {
+  text-align: center;
+}
+
+[class$=_item] {
+  margin-bottom: 12px;
+  padding: 8px 0;
+}
+
+.constellation_item {
+  position: relative;
+  border: 5px solid #fca0a0;
+  border-radius: 16px;
+  padding: 14px 20px;
+  box-shadow: 5px 4px 9px 0px #fca0a036;
+}
+
+.constellation_item > .item_title img {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+}
+
+.constellation_item > .item_title p {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.constellation_item > .item_content {
+  max-width: calc(100% - 170px);
+}
+
 

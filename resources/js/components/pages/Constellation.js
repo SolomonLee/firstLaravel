@@ -1,3 +1,5 @@
+import ConstellationList from "../combo/ConstellationList";
+
 function Constellation() {
     return (
         <div className="container">
@@ -5,7 +7,9 @@ function Constellation() {
                 <div className="block_title">
                     <h1>星座運勢</h1>
                 </div>
-                <div className="block_content"></div>
+                <div className="block_content">
+                    <ConstellationList />
+                </div>
             </section>
         </div>
     );

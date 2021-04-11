@@ -3915,41 +3915,28 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "login": () => (/* binding */ login),
-/* harmony export */   "logout": () => (/* binding */ logout),
-/* harmony export */   "signup": () => (/* binding */ signup)
+/* harmony export */   "getConstellation": () => (/* binding */ getConstellation)
 /* harmony export */ });
-// A mock function to mimic making an async request for data
-var login = function login(data) {
-  console.log("data:", data);
-  return new Promise(function (resolve, reject) {
-    setTimeout(function () {
-      if (!data) reject();
-      resolve({
-        data: data
-      }); // if (data.type == 1) {
-      // } else {
-      //     resolve({
-      //         data: {
-      //             type: 2,
-      //             name: "李姓男子",
-      //             birth: "1999/12/12",
-      //         },
-      //         yourdata: data,
-      //     });
-      // }
-    }, 500);
-  });
-};
-var logout = function logout() {
-  return login({
-    type: 1,
-    name: "遊客",
-    birth: "1999/01/01"
-  });
-};
-var signup = function signup(data) {
-  return login(data);
+var _return = function _return(_data) {
+  return {
+    data: _data
+  };
+}; // A mock function to mimic making an async request for data
+
+
+var getConstellation = function getConstellation() {
+  return fetch("/Api/Constellation/Get").then(function (response) {
+    return response;
+  })["catch"](function (err) {
+    console.log("error : ", err);
+  }); // return new Promise((resolve, reject) => {
+  //     fetch("/Api/Constellation/Get")
+  //         .then(response => response.json())
+  //         .then(data => resolve(_return(data)))
+  //         .catch(function(err) {
+  //             reject(err);
+  //         });
+  // });
 };
 
 /***/ }),
@@ -3977,11 +3964,6 @@ __webpack_require__.r(__webpack_exports__);
  * building robust, powerful web applications using React + Laravel.
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-/**
- * Next, we will create a fresh React component instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
 
 
 
@@ -3990,18 +3972,17 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
-
-function App() {
+function ROOT() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_2__.Provider, {
     store: _reducers_store__WEBPACK_IMPORTED_MODULE_3__.default,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_pages_Constellation__WEBPACK_IMPORTED_MODULE_4__.default, {})
   });
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App); // DOM element
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ROOT); // DOM element
 
-if (document.getElementById("App")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(App, {}), document.getElementById("App"));
+if (document.getElementById("ROOT")) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(ROOT, {}), document.getElementById("ROOT"));
 }
 
 /***/ }),
@@ -4050,10 +4031,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/Constellation.js":
-/*!********************************************************!*\
-  !*** ./resources/js/components/pages/Constellation.js ***!
-  \********************************************************/
+/***/ "./resources/js/components/ConstellationItem.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/ConstellationItem.js ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4065,18 +4046,143 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var ConstellationItem = function ConstellationItem(props) {
+  var arrData = [props.conclusion, props.money, props.love, props.work];
+  var dataItems = arrData.map(function (data) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("section", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h6", {
+        children: [data.title, "\xA0\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("small", {
+          children: ["\u904B\u52E2\u7B49\u7D1A : ", data.level]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h6", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+        children: data.comment
+      })]
+    }, data.title);
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    className: "constellation_item",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      className: "item_title",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
+        src: props.img,
+        alt: props.name
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+        children: props.name
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      className: "item_content",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h5", {
+        children: ["\u65E5\u671F : ", props.date]
+      }), dataItems]
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ConstellationItem);
+
+/***/ }),
+
+/***/ "./resources/js/components/combo/ConstellationList.js":
+/*!************************************************************!*\
+  !*** ./resources/js/components/combo/ConstellationList.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _reducers_constellationRedux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/constellationRedux */ "./resources/js/reducers/constellationRedux.js");
+/* harmony import */ var _ConstellationItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ConstellationItem */ "./resources/js/components/ConstellationItem.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+function ConstellationList() {
+  var constellationDatas = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(_reducers_constellationRedux__WEBPACK_IMPORTED_MODULE_2__.selectConstellationDatas);
+  var constellationStatus = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(_reducers_constellationRedux__WEBPACK_IMPORTED_MODULE_2__.selectConstellationStatus);
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    dispatch((0,_reducers_constellationRedux__WEBPACK_IMPORTED_MODULE_2__.getConstellationsAsync)());
+  }, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    console.log("useEffect get constellationDatas : ", constellationDatas);
+  }, [constellationDatas]);
+  var constellationItems = constellationDatas.map(function (constellationData) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ConstellationItem__WEBPACK_IMPORTED_MODULE_3__.default, {
+      name: constellationData.name,
+      date: constellationData.date,
+      img: constellationData.img,
+      conclusion: JSON.parse(constellationData.conclusion),
+      money: JSON.parse(constellationData.money),
+      love: JSON.parse(constellationData.love),
+      work: JSON.parse(constellationData.work)
+    }, constellationData.name);
+  });
+
+  var handleResearch = function handleResearch() {
+    dispatch((0,_reducers_constellationRedux__WEBPACK_IMPORTED_MODULE_2__.getConstellationsAsync)());
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    className: "constellation_list_box",
+    boxtype: constellationStatus,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+      className: "btn",
+      onClick: handleResearch,
+      children: "research"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "box_title"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "box_content",
+      children: constellationItems
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "box_bottom"
+    })]
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ConstellationList);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/Constellation.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/pages/Constellation.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _combo_ConstellationList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../combo/ConstellationList */ "./resources/js/components/combo/ConstellationList.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
 function Constellation() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "container",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("section", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
       className: "constellation_block",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "block_title",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
           children: "\u661F\u5EA7\u904B\u52E2"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        className: "block_content"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "block_content",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_combo_ConstellationList__WEBPACK_IMPORTED_MODULE_0__.default, {})
       })]
     })
   });
@@ -4095,7 +4201,7 @@ function Constellation() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getAsync": () => (/* binding */ getAsync),
+/* harmony export */   "getConstellationsAsync": () => (/* binding */ getConstellationsAsync),
 /* harmony export */   "constellationSlice": () => (/* binding */ constellationSlice),
 /* harmony export */   "selectConstellationStatus": () => (/* binding */ selectConstellationStatus),
 /* harmony export */   "selectConstellationDatas": () => (/* binding */ selectConstellationDatas),
@@ -4105,6 +4211,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
 /* harmony import */ var _apis_constellationAPI__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../apis/constellationAPI */ "./resources/js/apis/constellationAPI.js");
+var _extraReducers;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -4129,32 +4239,30 @@ var initialState = {
 //     }
 // );
 
-var getAsync = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)("constellation/get", /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(data) {
-    var response;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return _apis_constellationAPI__WEBPACK_IMPORTED_MODULE_1__.signup(data);
+var getConstellationsAsync = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createAsyncThunk)("constellation/get", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+  var response;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return _apis_constellationAPI__WEBPACK_IMPORTED_MODULE_1__.getConstellation();
 
-          case 2:
-            response = _context.sent;
-            return _context.abrupt("return", response.data);
+        case 2:
+          response = _context.sent;
+          _context.next = 5;
+          return response.json();
 
-          case 4:
-          case "end":
-            return _context.stop();
-        }
+        case 5:
+          return _context.abrupt("return", _context.sent);
+
+        case 6:
+        case "end":
+          return _context.stop();
       }
-    }, _callee);
-  }));
-
-  return function (_x) {
-    return _ref.apply(this, arguments);
-  };
-}());
+    }
+  }, _callee);
+})));
 var constellationSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.createSlice)({
   name: "constellation",
   initialState: initialState,
@@ -4162,26 +4270,23 @@ var constellationSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.create
   reducers: {},
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
   // including actions generated by createAsyncThunk or in other slices.
-  extraReducers: function extraReducers(builder) {
-    builder.addCase(getAsync.pending, function (state) {
-      state.status = "loading";
-    }).addCase(getAsync.fulfilled, function (state, action) {
-      state.status = "done";
-      state.datas = action.payload.datas;
-    }).addCase(getAsync.rejected, function () {
-      alert("發生錯誤, 將重新整理畫面");
-    });
-  }
-}); // export const { loginAsync, logoutAsync } = userSlice.actions;
-// The function below is called a selector and allows us to select a value from
+  extraReducers: (_extraReducers = {}, _defineProperty(_extraReducers, getConstellationsAsync.pending, function (state, action) {
+    state.status = "loading";
+  }), _defineProperty(_extraReducers, getConstellationsAsync.fulfilled, function (state, action) {
+    state.status = "done";
+    state.datas = action.payload;
+  }), _defineProperty(_extraReducers, getConstellationsAsync.rejected, function (state, action) {
+    alert("發生錯誤, 將重新整理畫面");
+  }), _extraReducers)
+}); // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 
 var selectConstellationStatus = function selectConstellationStatus(state) {
-  return state.userinfo.status;
+  return state.constellation.status;
 };
 var selectConstellationDatas = function selectConstellationDatas(state) {
-  return state.constellationDatas;
+  return state.constellation.datas;
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (constellationSlice.reducer);
 

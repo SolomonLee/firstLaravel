@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-    getAsync,
+    getConstellationsAsync,
     selectConstellationStatus,
     selectConstellationDatas
 } from "../../reducers/constellationRedux";
+
+import ConstellationItem from "../ConstellationItem";
 
 function ConstellationList() {
     const constellationDatas = useSelector(selectConstellationDatas);
@@ -12,138 +14,38 @@ function ConstellationList() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(constellationDatas());
+        dispatch(getConstellationsAsync());
     }, []);
 
+    useEffect(() => {
+        console.log("useEffect get constellationDatas : ", constellationDatas);
+    }, [constellationDatas]);
+
+    const constellationItems = constellationDatas.map(constellationData => (
+        <ConstellationItem
+            key={constellationData.name}
+            name={constellationData.name}
+            date={constellationData.date}
+            img={constellationData.img}
+            conclusion={JSON.parse(constellationData.conclusion)}
+            money={JSON.parse(constellationData.money)}
+            love={JSON.parse(constellationData.love)}
+            work={JSON.parse(constellationData.work)}
+        />
+    ));
+
+    const handleResearch = () => {
+        dispatch(getConstellationsAsync());
+    };
+
     return (
-        <div className="constellation_list_box" boxtype={userStatus}>
+        <div className="constellation_list_box" boxtype={constellationStatus}>
+            <button className="btn" onClick={handleResearch}>
+                research
+            </button>
             <div className="box_title"></div>
-            <div className="box_content">
-                {userType == 1 ? (
-                    <button
-                        className="btn"
-                        styleno="login"
-                        onClick={handlerShowLoginModal}
-                    >
-                        登入
-                    </button>
-                ) : (
-                    <button
-                        className="btn"
-                        styleno="logout"
-                        onClick={handlerLogout}
-                    >
-                        {userName} : 登出
-                    </button>
-                )}
-            </div>
-            <div className="box_bottom">
-                {userStatus == "onlogout" ? "登出中..." : null}
-            </div>
-            <div
-                className="modal"
-                tabIndex="-1"
-                role="dialog"
-                id="UserLoginModal"
-            >
-                <div className="modal-dialog" role="document">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title">
-                                {!useLogin ? "登入" : "註冊"}
-                            </h5>
-                            <button
-                                type="button"
-                                className="close"
-                                data-dismiss="modal"
-                                aria-label="Close"
-                            >
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div className="modal-body">
-                            <FillItem
-                                title="帳號"
-                                placeholder="輸入您的帳號"
-                                setValue={setAccount}
-                                type="text"
-                                defaultValue={account}
-                                request={true}
-                            />
-                            <FillItem
-                                placeholder="輸入您的密碼"
-                                setValue={setPassword}
-                                type="text"
-                                defaultValue={password}
-                                request={true}
-                            />
-                            {!useLogin ? (
-                                <div>
-                                    <FillItem
-                                        placeholder="輸入您的名稱"
-                                        setValue={setName}
-                                        type="text"
-                                        defaultValue={name}
-                                        request={true}
-                                    />
-                                    <FillItem
-                                        placeholder="輸入您的生日"
-                                        setValue={setBirth}
-                                        type="text"
-                                        defaultValue={birth}
-                                        request={true}
-                                    />
-                                </div>
-                            ) : null}
-                        </div>
-                        <div className="modal-footer">
-                            {useLogin ? (
-                                <button
-                                    type="button"
-                                    className="btn btn-primary"
-                                    onClick={handlerLogin}
-                                >
-                                    登入
-                                </button>
-                            ) : (
-                                <button
-                                    type="button"
-                                    className="btn btn-primary"
-                                    onClick={handlerSignup}
-                                >
-                                    註冊
-                                </button>
-                            )}
-
-                            {useLogin ? (
-                                <button
-                                    type="button"
-                                    className="btn btn-primary"
-                                    onClick={handlerChangeSignup}
-                                >
-                                    前往註冊
-                                </button>
-                            ) : (
-                                <button
-                                    type="button"
-                                    className="btn btn-primary"
-                                    onClick={handlerChangeLogin}
-                                >
-                                    返回登入
-                                </button>
-                            )}
-
-                            <button
-                                type="button"
-                                className="btn btn-secondary"
-                                data-dismiss="modal"
-                            >
-                                關閉
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div className="box_content">{constellationItems}</div>
+            <div className="box_bottom"></div>
         </div>
     );
 }

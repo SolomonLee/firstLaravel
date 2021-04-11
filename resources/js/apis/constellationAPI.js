@@ -1,35 +1,20 @@
+const _return = _data => {
+    return { data: _data };
+};
+
 // A mock function to mimic making an async request for data
-export const login = (data) => {
-    console.log("data:", data);
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (!data) reject();
-
-            resolve({ data: data });
-
-            // if (data.type == 1) {
-            // } else {
-            //     resolve({
-            //         data: {
-            //             type: 2,
-            //             name: "李姓男子",
-            //             birth: "1999/12/12",
-            //         },
-            //         yourdata: data,
-            //     });
-            // }
-        }, 500);
-    });
-};
-
-export const logout = () => {
-    return login({
-        type: 1,
-        name: "遊客",
-        birth: "1999/01/01",
-    });
-};
-
-export const signup = (data) => {
-    return login(data);
+export const getConstellation = () => {
+    return fetch("/Api/Constellation/Get")
+        .then(response => response)
+        .catch(function(err) {
+            console.log("error : ", err);
+        });
+    // return new Promise((resolve, reject) => {
+    //     fetch("/Api/Constellation/Get")
+    //         .then(response => response.json())
+    //         .then(data => resolve(_return(data)))
+    //         .catch(function(err) {
+    //             reject(err);
+    //         });
+    // });
 };

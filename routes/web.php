@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-// use App\Http\Controllers\IndexController;
-// use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,27 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/','[IndexController::class, 'index']');
-/*
-Route::resource('/index', IndexController::class);
-
-Route::post('/login', [LoginController::class, 'login']);
-Route::get('/autoLogin', [LoginController::class, 'autoLogin']);
-Route::post('authenticate', [LoginController::class, 'authenticate']);*/
-
-Route::get('/getCSRFToken', [LoginController::class, 'getCSRFToken']);
-
 
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/Api/Constellation/Get', [App\Http\Controllers\ConstellationController::class, 'get']);
 Route::get('/Api/Constellation/Update', [App\Http\Controllers\ConstellationController::class, 'update']);
 
 Route::get('/redirect', 'App\Http\Controllers\Auth\LoginController@redirectToProvider')->name('redirect');;
 Route::get('/callback', 'App\Http\Controllers\Auth\RegisterController@handleProviderCallback');
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
