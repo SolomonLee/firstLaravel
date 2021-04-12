@@ -24,4 +24,5 @@
 -   清除 cache  
     php artisan config:cache
 
-npm run watch
+-   監聽 if save > 編譯  
+    npm run watch
