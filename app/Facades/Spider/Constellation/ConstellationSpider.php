@@ -37,15 +37,15 @@ class ConstellationSpider extends Facade {
         echo "開始更新\n";
         $url = "https://astro.click108.com.tw/";
         $html = HtmlDomParser::file_get_html($url, false, null, 0 );
-  
+      
           
         foreach($html->find("div[class=STAR12_BOX]") as $classSTAR12_BOX)
         {
            
         foreach($classSTAR12_BOX->find("a") as $tagA)
           {
-            $_url = urldecode(substr(strstr($tagA->href,'RedirectTo='), 11));
-  
+            $_url = urldecode(substr(strstr($tagA->href,'RedirectTo='), 11)) . "&iAcDay=" .date("Y-m-d");
+            echo $_url . "<br>";
             echo "準備更新 - $tagA->plaintext\n";
             $_constellation_row = Constellation::where('name', $tagA->plaintext)->first();
             if(!$_constellation_row) {
@@ -69,11 +69,11 @@ class ConstellationSpider extends Facade {
     
     protected static function parseSubPage($url) {
         $html = HtmlDomParser::file_get_html($url, false, null, 0 );
-  
+
         $date = "";
         foreach($html->find("select[id=iAcDay]") as $idiAcDay)
         {
-          $date = $idiAcDay->find("option", 0)->plaintext;
+          $date = $idiAcDay->find("option[selected=selected]", 0)->plaintext;
         }
   
         $comments = [];

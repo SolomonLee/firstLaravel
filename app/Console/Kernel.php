@@ -27,7 +27,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->job(new AutoUpdateJob(now()->toDateTimeString()))->everyFiveMinutes();
+        // $schedule->job(new AutoUpdateJob(now()->toDateTimeString()))->everyFiveMinutes();
+        $schedule->job(new AutoUpdateJob(now()->toDateTimeString()))->hourly();
     }
 
     /**
