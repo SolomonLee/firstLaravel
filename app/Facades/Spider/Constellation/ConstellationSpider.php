@@ -81,33 +81,36 @@ class ConstellationSpider extends Facade {
             $level = 0;
             $title = "";
             $comment = "";
-  
-          foreach($classTODAY_CONTENT->find("p") as $p)
-          {
-            $pos = strpos($p->plaintext, '運勢');
-            if($pos !== false)
-            {
-                $title = strstr($p->plaintext, '運勢', true);
-                $level = (strpos(strstr($p->plaintext, '運勢'), '☆') - 6) / 3;
-            }
-            else {
-                $comment = $p->plaintext;
-  
-                $col_name_index = array_search($title, array_column(ConstellationSpider::$allowTitle, 'title'));
-                if($col_name_index !== false){
-                    $comments[] = [
-                        "col_name" => ConstellationSpider::$allowTitle[$col_name_index]['col_name'],
-                        "level" => $level,
-                        "title" => $title,
-                        "comment" => $comment
-                    ];
-                }
 
-                $level = 0;
-                $title = "";
-                $comment = "";
+            $hasTitle = false;
+            foreach($classTODAY_CONTENT->find("p") as $p)
+            {
+                $pos = strpos($p->plaintext, '運勢');
+                if($pos !== false && !$hasTitle)
+                {
+                    $title = strstr($p->plaintext, '運勢', true);
+                    $level = (strpos(strstr($p->plaintext, '運勢'), '☆') - 6) / 3;
+                    $hasTitle = true;
+                }
+                else {
+                    $comment = $p->plaintext;
+
+                    $col_name_index = array_search($title, array_column(ConstellationSpider::$allowTitle, 'title'));
+                    if($col_name_index !== false){
+                        $comments[] = [
+                            "col_name" => ConstellationSpider::$allowTitle[$col_name_index]['col_name'],
+                            "level" => $level,
+                            "title" => $title,
+                            "comment" => $comment
+                        ];
+                    }
+
+                    $level = 0;
+                    $title = "";
+                    $comment = "";
+                    $hasTitle = false;
+                }
             }
-          }
         }
   
         $imgUrl = "";

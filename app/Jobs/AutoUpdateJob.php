@@ -31,7 +31,7 @@ class AutoUpdateJob implements ShouldQueue
      */
     public function handle()
     {
-        \Log::info('自動更新時間 : ' . $this->dataTime);
+        \Log::info('自動更新開始時間 : ' . $this->dataTime);
         app()->make('ConstellationSpider')->run();
     }
 }

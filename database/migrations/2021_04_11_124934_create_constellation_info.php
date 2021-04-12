@@ -17,11 +17,11 @@ class CreateConstellationInfo extends Migration
             $table->id();
             $table->string('name');
             $table->string('date_text');
-            $table->jsonb('conclusion');
-            $table->jsonb('love');
-            $table->jsonb('work');
-            $table->jsonb('money');
-            $table->string('img');
+            $table->jsonb('conclusion')->nullable(true);
+            $table->jsonb('love')->nullable(true);
+            $table->jsonb('work')->nullable(true);
+            $table->jsonb('money')->nullable(true);
+            $table->string('img')->nullable(true);
             $table->timestamps();
         });
     }
