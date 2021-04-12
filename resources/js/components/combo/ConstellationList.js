@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
     getConstellationsAsync,
@@ -8,10 +8,11 @@ import {
 
 import ConstellationItem from "../ConstellationItem";
 
-function ConstellationList() {
+const ConstellationList = () => {
     const constellationDatas = useSelector(selectConstellationDatas);
     const constellationStatus = useSelector(selectConstellationStatus);
     const dispatch = useDispatch();
+    const [showAll, setShowALl] = useState(false);
 
     useEffect(() => {
         dispatch(getConstellationsAsync());
@@ -38,16 +39,28 @@ function ConstellationList() {
         dispatch(getConstellationsAsync());
     };
 
+    const handleShowAll = () => {
+        setShowALl(!showAll);
+    };
+
     return (
-        <div className="constellation_list_box" boxtype={constellationStatus}>
-            <button className="btn" onClick={handleResearch}>
-                research
-            </button>
-            <div className="box_title"></div>
+        <div
+            className="constellation_list_box"
+            boxtype={constellationStatus}
+            showall={!showAll ? null : ""}
+        >
+            <div className="box_title">
+                <button className="btn btn-info" onClick={handleShowAll}>
+                    open all
+                </button>
+                <button className="btn btn-danger" onClick={handleResearch}>
+                    research
+                </button>
+            </div>
             <div className="box_content">{constellationItems}</div>
             <div className="box_bottom"></div>
         </div>
     );
-}
+};
 
 export default ConstellationList;

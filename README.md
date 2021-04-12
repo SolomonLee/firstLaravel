@@ -23,3 +23,5 @@
 
 -   清除 cache  
     php artisan config:cache
+
+npm run watch

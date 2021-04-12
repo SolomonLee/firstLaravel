@@ -13,6 +13,10 @@
 
     & > .block_title {
         text-align: center;
+        letter-spacing: 2px;
+        h1 {
+            letter-spacing: inherit;
+        }
     }
 }
 
@@ -31,12 +35,66 @@
     padding: 8px 0;
 }
 
+.constellation_list_box {
+    & > .box_title {
+        margin-bottom: 20px;
+        * + .btn {
+            margin-left: 8px;
+        }
+    }
+
+    &[showall] {
+        .constellation_item {
+            max-height: 500px !important;
+
+            & > .item_title {
+                img {
+                    opacity: 1 !important;
+                }
+            }
+
+            & > .item_content {
+                padding-left: 8px !important;
+                section p {
+                    padding-left: 8px !important;
+                }
+            }
+        }
+    }
+}
+
 .constellation_item {
+    $time1: 0.5s;
+    $time2: 0.8s;
+
     position: relative;
     border: 5px solid #fca0a0;
     border-radius: 16px;
     padding: 14px 20px;
     box-shadow: 5px 4px 9px 0px #fca0a036;
+
+    opacity: 0.8;
+    max-height: 75px;
+    overflow: hidden;
+    transition: max-height ease-in-out $time1, opacity ease-in-out $time2;
+
+    &:hover {
+        max-height: 500px;
+        opacity: 1;
+
+        & > .item_title {
+            img {
+                opacity: 1;
+            }
+        }
+
+        & > .item_content {
+            padding-left: 8px;
+            section p {
+                padding-left: 8px;
+            }
+        }
+    }
 
     & > .item_title {
         img {
@@ -46,6 +104,8 @@
             display: inline-block;
             width: 150px;
             height: 150px;
+            opacity: 0;
+            transition: opacity ease-in-out $time1;
         }
 
         p {
@@ -56,5 +116,25 @@
 
     & > .item_content {
         max-width: calc(100% - 170px);
+        padding-left: 0px;
+        transition: padding-left ease-in-out $time2;
+
+        section {
+            p {
+                padding-left: 0px;
+                transition: padding-left ease-in-out $time2;
+            }
+        }
+    }
+}
+
+#app {
+    > .navbar {
+        opacity: 0.5;
+        transition: opacity ease-in-out 0.5s;
+
+        &:hover {
+            opacity: 1;
+        }
     }
 }

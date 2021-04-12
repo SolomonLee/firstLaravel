@@ -4098,6 +4098,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reducers_constellationRedux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/constellationRedux */ "./resources/js/reducers/constellationRedux.js");
 /* harmony import */ var _ConstellationItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ConstellationItem */ "./resources/js/components/ConstellationItem.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -4105,10 +4116,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function ConstellationList() {
+
+var ConstellationList = function ConstellationList() {
   var constellationDatas = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(_reducers_constellationRedux__WEBPACK_IMPORTED_MODULE_2__.selectConstellationDatas);
   var constellationStatus = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(_reducers_constellationRedux__WEBPACK_IMPORTED_MODULE_2__.selectConstellationStatus);
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      showAll = _useState2[0],
+      setShowALl = _useState2[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_reducers_constellationRedux__WEBPACK_IMPORTED_MODULE_2__.getConstellationsAsync)());
   }, []);
@@ -4131,15 +4149,25 @@ function ConstellationList() {
     dispatch((0,_reducers_constellationRedux__WEBPACK_IMPORTED_MODULE_2__.getConstellationsAsync)());
   };
 
+  var handleShowAll = function handleShowAll() {
+    setShowALl(!showAll);
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "constellation_list_box",
     boxtype: constellationStatus,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-      className: "btn",
-      onClick: handleResearch,
-      children: "research"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      className: "box_title"
+    showall: !showAll ? null : "",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "box_title",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+        className: "btn btn-info",
+        onClick: handleShowAll,
+        children: "open all"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+        className: "btn btn-danger",
+        onClick: handleResearch,
+        children: "research"
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "box_content",
       children: constellationItems
@@ -4147,7 +4175,7 @@ function ConstellationList() {
       className: "box_bottom"
     })]
   });
-}
+};
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ConstellationList);
 

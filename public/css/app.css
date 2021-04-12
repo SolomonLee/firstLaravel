@@ -10949,6 +10949,11 @@ a.text-dark:focus {
 
 [class$=_block] > .block_title {
   text-align: center;
+  letter-spacing: 2px;
+}
+
+[class$=_block] > .block_title h1 {
+  letter-spacing: inherit;
 }
 
 [class$=_box] {
@@ -10966,12 +10971,57 @@ a.text-dark:focus {
   padding: 8px 0;
 }
 
+.constellation_list_box > .box_title {
+  margin-bottom: 20px;
+}
+
+.constellation_list_box > .box_title * + .btn {
+  margin-left: 8px;
+}
+
+.constellation_list_box[showall] .constellation_item {
+  max-height: 500px !important;
+}
+
+.constellation_list_box[showall] .constellation_item > .item_title img {
+  opacity: 1 !important;
+}
+
+.constellation_list_box[showall] .constellation_item > .item_content {
+  padding-left: 8px !important;
+}
+
+.constellation_list_box[showall] .constellation_item > .item_content section p {
+  padding-left: 8px !important;
+}
+
 .constellation_item {
   position: relative;
   border: 5px solid #fca0a0;
   border-radius: 16px;
   padding: 14px 20px;
   box-shadow: 5px 4px 9px 0px #fca0a036;
+  opacity: 0.8;
+  max-height: 75px;
+  overflow: hidden;
+  transition: max-height ease-in-out 0.5s, opacity ease-in-out 0.8s;
+}
+
+.constellation_item:hover {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.constellation_item:hover > .item_title img {
+  opacity: 1;
+}
+
+.constellation_item:hover > .item_content {
+  padding-left: 8px;
+}
+
+.constellation_item:hover > .item_content section p {
+  padding-left: 8px;
 }
 
 .constellation_item > .item_title img {
@@ -10981,6 +11031,8 @@ a.text-dark:focus {
   display: inline-block;
   width: 150px;
   height: 150px;
+  opacity: 0;
+  transition: opacity ease-in-out 0.5s;
 }
 
 .constellation_item > .item_title p {
@@ -10990,6 +11042,22 @@ a.text-dark:focus {
 
 .constellation_item > .item_content {
   max-width: calc(100% - 170px);
+  padding-left: 0px;
+  transition: padding-left ease-in-out 0.8s;
+}
+
+.constellation_item > .item_content section p {
+  padding-left: 0px;
+  transition: padding-left ease-in-out 0.8s;
+}
+
+#app > .navbar {
+  opacity: 0.5;
+  transition: opacity ease-in-out 0.5s;
+}
+
+#app > .navbar:hover {
+  opacity: 1;
 }
 
 
