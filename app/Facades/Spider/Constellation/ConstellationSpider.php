@@ -89,7 +89,11 @@ class ConstellationSpider extends Facade {
                 if($pos !== false && !$hasTitle)
                 {
                     $title = strstr($p->plaintext, '運勢', true);
-                    $level = (strpos(strstr($p->plaintext, '運勢'), '☆') - 6) / 3;
+
+                    $_tmep_level = strpos(strstr($p->plaintext, '運勢'), '☆');
+                    if($_tmep_level === false) $_tmep_level = 21;
+                    
+                    $level = ($_tmep_level - 6) / 3;
                     $hasTitle = true;
                 }
                 else {

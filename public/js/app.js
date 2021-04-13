@@ -4047,11 +4047,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ConstellationItem = function ConstellationItem(props) {
-  var arrData = [props.conclusion, props.money, props.love, props.work];
+  var arrData = [props.conclusion, props.love, props.work, props.money];
   var dataItems = arrData.map(function (data) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("section", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h6", {
-        children: [data.title, "\xA0\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("small", {
+        children: [data.title, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("small", {
           children: ["\u904B\u52E2\u7B49\u7D1A : ", data.level]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {

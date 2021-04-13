@@ -1,9 +1,9 @@
 const ConstellationItem = props => {
-    const arrData = [props.conclusion, props.money, props.love, props.work];
+    const arrData = [props.conclusion, props.love, props.work, props.money];
     const dataItems = arrData.map(data => (
         <section key={data.title}>
             <h6>
-                {data.title}&nbsp;&nbsp;
+                {data.title}
                 <small>運勢等級 : {data.level}</small>
             </h6>
             <p>{data.comment}</p>
